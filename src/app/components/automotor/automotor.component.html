@@ -1,0 +1,24 @@
+<ng-container *ngIf="automotor">                             <!-- Aca lo que digo es que unicamente si prdocuto existe sera renderizado -->           
+
+    <p>{{ automotor.id }}</p>                    
+    <p>{{ automotor.i_n }}</p>
+    <p>{{ automotor.marca }}</p>                 
+    <p>{{ automotor.descripcion}}</p>
+    <p>{{ automotor.tipo}}</p>
+    <p>{{ automotor.clase}}</p>            
+    <p>{{ automotor.year2021 }}</p>
+    <p>{{ automotor.year2020 }}</p>             
+    <p>{{ automotor.year2019 }}</p>
+    <p>{{ automotor.year2018 }}</p>
+    <p>{{ automotor.year2017 }}</p>             
+    <p>{{ automotor.year2016 }}</p>
+    <p>{{ automotor.year2015 }}</p>
+    <p>{{ automotor.year2014 }}</p>             
+    <p>{{ automotor.year2013 }}</p>
+    <p>{{ automotor.year2012 }}</p>
+
+</ng-container>
+
+<ng-container *ngIf="!automotor">
+    product no renderizado
+</ng-container>
