@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http'; //Cosan nueva que usamos... proporciona las capacidades necesarias para realizar solicitudes HTTP y comunicarse con servidores remotos
 import { NgOptimizedImage } from '@angular/common';
 import { AgGridModule } from 'ag-grid-angular';
+import { FormsModule } from '@angular/forms';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,14 +14,15 @@ import { AutomotorComponent } from './components/automotor/automotor.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AutomotorComponent
+    AutomotorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,                  // Agregamos
     NgOptimizedImage,
-    AgGridModule
+    AgGridModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

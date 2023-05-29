@@ -4,6 +4,8 @@ import { NgOptimizedImage } from '@angular/common';
 import { Automotor } from './models/automotor.model';
 import { ColDef } from 'ag-grid-community'; // Importa la interfaz ColDef desde 'ag-grid-community'
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,6 +15,8 @@ export class AppComponent {
   title = ' TDI';
   http = inject(HttpClient);
   rowData: Automotor[] = []
+  filtro: string = '';
+  inputValue: string = '';
 
 
   colDefs: ColDef[] = [
@@ -34,18 +38,34 @@ export class AppComponent {
     { field: 'year2012', flex: 1, headerName: '2012', sortable: true },
   ];
 
+  search() {
+
+    if (this.inputValue != "") {
+      this.http.get<Automotor[]>('http://localhost:8080/buscar/' + this.inputValue).subscribe((data) => {
+        console.log("Array de Automotor:" + data);
+        this.rowData = data;
+
+      });
+    } else {
+      this.capturarDatos();
+    }
+
+  }
 
   changeTitle() {
     this.title = ', gracias por usar nuestro sistema';
   }
 
-
-  ngOnInit() {
+  capturarDatos() {
     console.log('Test')
     this.http.get<Automotor[]>('http://localhost:8080/automotor')
       .subscribe((data) => {
         console.log(data);
         this.rowData = data;
       });
+  }
+
+  ngOnInit() {
+    this.capturarDatos();
   }
 }
